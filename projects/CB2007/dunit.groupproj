@@ -1,0 +1,34 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{6473e798-ce78-4804-ae75-ecc60a71eae5}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="dunit_runtime.cbproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+  <BorlandProject xmlns=""> <Default.Personality> </Default.Personality> </BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="dunit_runtime">
+    <MSBuild Projects="dunit_runtime.cbproj" Targets="" />
+  </Target>
+  <Target Name="dunit_runtime:Clean">
+    <MSBuild Projects="dunit_runtime.cbproj" Targets="Clean" />
+  </Target>
+  <Target Name="dunit_runtime:Make">
+    <MSBuild Projects="dunit_runtime.cbproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="dunit_runtime" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="dunit_runtime:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="dunit_runtime:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

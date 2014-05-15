@@ -40,7 +40,11 @@ unit TestFramework;
 
 
 { The following is for C++ Support }
-(*$HPPEMIT '#pragma link "dunitrtl.lib"' *)
+(*$HPPEMIT '#ifdef USEPACKAGES' *)
+(*$HPPEMIT '#pragma link "dunit_runtime.bpi"' *)
+(*$HPPEMIT '#else' *)
+(*$HPPEMIT '#pragma link "dunit_runtime.lib"' *)
+(*$HPPEMIT '#endif' *)
 
 interface
 uses
